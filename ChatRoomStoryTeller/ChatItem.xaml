@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ChatRoomStoryTeller"
              mc:Ignorable="d" 
-             d:DesignHeight="150" d:DesignWidth="350" d:MaxWidth="650">
-    <Border  x:Name="brdr" Background="#7289da" BorderThickness="1,1,1,1" CornerRadius="60">
+             d:DesignHeight="150" d:DesignWidth="350" d:MaxWidth="650" >
+    <Border  x:Name="brdr" Background="#7289da" BorderThickness="1,1,1,1" CornerRadius="25">
         <Grid >
             <TextBlock Margin="30" x:Name="txtMessage" TextWrapping="Wrap" Text="chat place holder"  FontSize="20" Foreground="White"></TextBlock>
-            <Label Margin="0,0,40,0" Foreground="White" Content="10:51" x:Name="lblTime" HorizontalAlignment="Right" FontSize="15" VerticalAlignment="Bottom"/>
+            <Label Margin="0,0,10,0" Foreground="White" Content="10:51" x:Name="lblTime" HorizontalAlignment="Right" FontSize="15" VerticalAlignment="Bottom"/>
         </Grid>
     </Border>
 </UserControl>

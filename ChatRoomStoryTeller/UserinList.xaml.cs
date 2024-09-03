@@ -21,6 +21,7 @@ namespace ChatRoomStoryTeller
     public partial class UserinList : UserControl
     {
         public string Username { get { return lblName.Content.ToString(); } set { lblName.Content = value; } }
+        public int id { get; set; }
         public string ChatPreview { get { return lblChat.Content.ToString(); } set { lblChat.Content = value; } }
         public ImageSource ProflePic { get { return imgProf.ImageSource; } set { imgProf.ImageSource = value; } }
         public void SetAsNotReaded()
@@ -28,14 +29,13 @@ namespace ChatRoomStoryTeller
             lblChat.FontWeight = FontWeights.Bold;
             lblChat.Foreground = Brushes.White;
             lblName.Foreground = Brushes.Gold;
-            lblName.Content += "⭐";
+
         }
         public void SetAsReaded()
         {
             lblChat.FontWeight = FontWeights.Light;
             lblChat.Foreground = Brushes.Gray;
             lblName.Foreground = Brushes.White;
-            lblName.Content = lblName.Content.ToString().Remove(lblName.Content.ToString().Length - 1);
         }
         public UserinList()
         {
