@@ -13,6 +13,7 @@
     <None Remove="send.jpg" />
     <None Remove="send.png" />
     <None Remove="sss.png" />
+    <None Remove="template.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +25,7 @@
     <Resource Include="send.jpg" />
     <Resource Include="send.png" />
     <Resource Include="sss.png" />
+    <Resource Include="template.jpg" />
   </ItemGroup>
 
 </Project>

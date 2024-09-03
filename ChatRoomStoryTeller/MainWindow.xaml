@@ -64,7 +64,7 @@
                         <ColumnDefinition Width="11*"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBox x:Name="txtToSend" AcceptsReturn="True" TextWrapping="Wrap" Background="#1e2124" Foreground="White" FontSize="20"/>
+                    <TextBox IsEnabled="False" x:Name="txtToSend" AcceptsReturn="True" TextWrapping="Wrap" Background="#1e2124" Foreground="White" FontSize="20"/>
                     <Button Click="arrowUpSelectChat" Width="45" Foreground="White" FontSize="10" Content="↑" Margin="0,0,5,0" Background="#7289da" Height="23" VerticalAlignment="Top" HorizontalAlignment="Right"></Button>
                     <Button Click="arrowDownSelectChat" Width="45" Foreground="White"  FontSize="10" Content="↓" Margin="0,0,5,0" Background="#7289da" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Right"></Button>
                     <Image MouseDown="Send_clicked" Width="25" Height="50" Grid.Column="1" Source="/send.png"  />

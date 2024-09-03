@@ -11,5 +11,6 @@ namespace ChatRoomStoryTeller
         public Senders Sender {  get; set; }
         public string Message { get; set; }
         public DateTime DateTime { get; set; }
+        public string Image {  get; set; } = "nap";
     }
 }

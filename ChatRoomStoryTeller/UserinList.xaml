@@ -28,7 +28,7 @@
                     <RowDefinition Height="1*"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Label x:Name="lblName" Grid.Row="1" Content="Name Placeholder" Foreground="White" FontWeight="Bold" ></Label>
-                <Label x:Name="lblChat" Grid.Row="2" Content="Chat Placeholder Chat Placeholder Chat Placeholder" FontSize="10" Foreground="Gray" FontWeight="Light" ></Label>
+                <Label x:Name="lblChat" Grid.Row="2" Content="" FontSize="10" Foreground="Gray" FontWeight="Light" ></Label>
 
             </Grid>
         </Grid>
