@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="profile.jpg" />
+    <None Remove="send.jpg" />
+    <None Remove="send.png" />
+    <None Remove="sss.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="profile.jpg" />
+    <Resource Include="send.jpg" />
+    <Resource Include="send.png" />
+    <Resource Include="sss.png" />
+  </ItemGroup>
+
+</Project>

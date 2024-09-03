@@ -1,0 +1,73 @@
+﻿<Window x:Class="ChatRoomStoryTeller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatRoomStoryTeller"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="800" Width="1300" WindowStartupLocation="CenterScreen">
+    <Grid Background="#424549">
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Background="#282B30">
+            <ScrollViewer >
+                <StackPanel x:Name="stackPnlUsers" >
+
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+        <Grid Grid.Column="1" Background="#424549">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="9*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border   Background="#7289da" BorderThickness="1,1,1,1" CornerRadius="0,0,5,5">
+                <Grid >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="10*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid>
+                            <Border CornerRadius="50" Width="50" Height="50">
+                                <Border.Background>
+                                    <ImageBrush x:Name="imgProf" Stretch="UniformToFill" ImageSource="/profile.jpg" />
+
+                                </Border.Background>
+                            </Border>
+                        </Grid>
+                        <Grid Grid.Column="1" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition ></RowDefinition>
+                                <RowDefinition ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Label x:Name="lblName" Grid.Row="0" FontSize="20" Content="Name Placeholder" Foreground="White" FontWeight="Bold" ></Label>
+                            <Label x:Name="lblStatus" Grid.Row="1" Content="Online" FontSize="15" Foreground="White" FontWeight="Normal" ></Label>
+
+                        </Grid>
+                    </Grid>
+
+                </Grid>
+            </Border>
+            <ScrollViewer Grid.Row="1" x:Name="scrlChat">
+                <StackPanel x:Name="stckPnlChats" Margin="30" >
+                </StackPanel>
+            </ScrollViewer>
+            <Border  Grid.Row="2" Background="#1e2124" BorderThickness="1,1,1,1" CornerRadius="5,5,0,0">
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="11*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="txtToSend" AcceptsReturn="True" TextWrapping="Wrap" Background="#1e2124" Foreground="White" FontSize="20"/>
+                    <Image MouseDown="Send_clicked" Width="25" Height="50" Grid.Column="1" Source="/send.png"  />
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
