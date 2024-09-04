@@ -19,66 +19,49 @@ namespace ChatRoomStoryTeller
             _instance = this;
             InitializeComponent();
             chatPageGrid.Visibility = Visibility.Hidden;
-            textList.Add("text1");
-            textList.Add("text2");
-            textList.Add("text3");
-            textList.Add("text4");
 
-            //users.Add(new User()
-            //{
-            //    Name = "Ali",
-            //    Image = "profile.jpg",
-            //    id = 1
-            //});
-            //List<ChatMessage> messages = new List<ChatMessage>();
-            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now, Message = "Hello" });
-            //messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now, Message = "hiii" });
-            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now, Message = "how you doing?" });
-            //messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now, Message = "im good" });
-            //messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now, Message = "what about you?" });
-            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now, Message = "nothing" });
-            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now, Image= "template.jpg" });
-            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now, Image= "profile2.jpg" });
-            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now, Message = "have a good day" });
-            //users[users.Count - 1].Messages = messages;
-            //users.Add(new User()
-            //{
-            //    Name = "Reza",
-            //    id = 2,
-            //    Image = "profile2.jpg"
-            //});
-            //List<ChatMessage> messages2 = new List<ChatMessage>();
-            //messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now, Message = "yo" });
-            //messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now, Message = "wazap" });
-            //messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now, Message = "yo fine?" });
-            //messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now, Message = "im good" });
-            //messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now, Message = "what about you?" });
-            //messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now, Message = "nothing" });
-            //messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now, Message = "have a nice day" });
-            //users[users.Count - 1].Messages = messages2;
-            //users[users.Count - 1].isNewMeesage = true;
+
+            users.Add(new User()
+            {
+                Name = "Olivia Richardson",
+                Image = "/img/oli.png",
+                id = 1
+            });
+            List<ChatMessage> messages = new List<ChatMessage>();
+            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now-new TimeSpan(36,24,12), Message = "This new app look dope" });
+            messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(36, 12, 12), Message = "helllo " });
+            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(36, 8, 12), Message = "me and Jacob gonna go to a theater. comin?" });
+            messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(36, 7, 12), Message = "not sure." });
+            messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(36, 6, 12), Message = "You two guys have fun" });
+            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(36, 5, 12), Message = "Okay.Tnx" });
+            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(31, 24, 12), Image = "/img/theater.webp" });
+            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(31, 24, 12), Image = "/img/orig.jpg" });
+            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(31, 24, 12), Message = "it was so good" });
+            messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(30, 32, 12), Message = "WOW" });
+            messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now , Message = "Hey Cassy Where have you been? Im a bit worried about you." });
+
+            users[users.Count - 1].Messages = messages;
+            users.Add(new User()
+            {
+                Name = "My Love ❤️",
+                id = 2,
+                Image = "/img/jacob.jpg"
+            });
+            List<ChatMessage> messages2 = new List<ChatMessage>();
+            messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(23, 24, 12), Message = "{deleted message}" });
+            messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(23, 23, 12), Message = "{deleted message}" });
+            messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(23, 12, 12), Message = "{deleted message}" });
+            messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(23, 11, 12), Message = "{deleted message}" });
+            messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(23, 10, 12), Message = "Is it removed on both sides?" });
+            messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(23, 10, 8), Message = "Yes ma love" });
+            messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(21, 24, 12), Message = "very well. no worries" });
+            users[users.Count - 1].Messages = messages2;
             //////-------------
             //System.IO.File.WriteAllText("backup.db", JsonConvert.SerializeObject(users, Formatting.Indented));
-            LoadDb();
-            Dialogue d1 = new Dialogue() { UserId = 1, Message = new ChatMessage() { Sender = Senders.you, Message = "hello", DateTime = DateTime.Now } };
-            Dialogue d2 = new Dialogue() { UserId = 1, Message = new ChatMessage() { Sender = Senders.you, Message = "im ali", DateTime = DateTime.Now } };
-            Dialogue d3 = new Dialogue() { UserId = 1, Message = new ChatMessage() { Sender = Senders.you, Message = "okay", DateTime = DateTime.Now } };
-            Dialogue d4 = new Dialogue() { UserId = 1, Message = new ChatMessage() { Sender = Senders.you, Message = "go to hell", DateTime = DateTime.Now } };
-            Dialogue d5 = new Dialogue() { UserId = 1, Message = new ChatMessage() { Sender = Senders.you, Message = "okay", DateTime = DateTime.Now } };
+            //LoadDb();
 
 
-            d5.Tasks.Add(new TaskItem() { Type = TaskType.MakeAnotherUserSendMessage, param1 = "2", param2 = "Helllooo" });
-            d1.Tasks.Add(new TaskItem() { Type = TaskType.ReturnToThisDialogue });
-            d2.Tasks.Add(new TaskItem() { Type = TaskType.ReturnToThisDialogue });
-            d3.Tasks.Add(new TaskItem() { Type = TaskType.NewUser, param1 = "3", param2 = "user3", param3 = "profile.jpg" });
-            d3.Tasks.Add(new TaskItem() { Type = TaskType.ReturnToThisDialogue });
-            d4.Tasks.Add(new TaskItem() { Type = TaskType.RemoveChat });
-            d1.Questions.Add(new Question() { Message = new ChatMessage() { Sender = Senders.me, Message = "hello who are you?", DateTime = DateTime.Now }, Answer = d2 });
-            d1.Questions.Add(new Question() { Message = new ChatMessage() { Sender = Senders.me, Message = "shut the fuck up bitch", DateTime = DateTime.Now }, Answer = d4 });
-            d1.Questions.Add(new Question() { Message = new ChatMessage() { Sender = Senders.me, Message = "tell user3 to text me", DateTime = DateTime.Now }, Answer = d3 });
-            d1.Questions.Add(new Question() { Message = new ChatMessage() { Sender = Senders.me, Message = "tell user3 to send a message to me", DateTime = DateTime.Now }, Answer = d5 });
-
-            users[0].LatestDialogue = d1;
+            StoryManager.LoadDailogus();
             loadUsers();
 
         }
@@ -88,6 +71,8 @@ namespace ChatRoomStoryTeller
             var temp = ((UserinList)sender);
             LoadMessagesPage(temp.id);
             temp.SetAsReaded();
+            users.Where(x => x.id == temp.id).First().isNewMeesage = false;
+            loadUsers();
         }
         private int currentChatid;
         public void LoadMessagesPage(int id)
@@ -116,11 +101,11 @@ namespace ChatRoomStoryTeller
                             if (message.Sender == Senders.me)
                             {
 
-                                stckPnlChats.Children.Add(new ChatItem() { Margin = new Thickness(10), Text = message.Message, HorizontalAlignment = HorizontalAlignment.Right, SendedTime = message.DateTime.ToShortTimeString(), sender = Senders.me });
+                                stckPnlChats.Children.Add(new ChatItem() { Margin = new Thickness(10), Text = message.Message, HorizontalAlignment = HorizontalAlignment.Right, SendedTime = message.DateTime.ToShortDateString()+" " + message.DateTime.ToShortTimeString(), sender = Senders.me });
                             }
                             else if (message.Sender == Senders.you)
                             {
-                                stckPnlChats.Children.Add(new ChatItem() { Margin = new Thickness(10), Text = message.Message, HorizontalAlignment = HorizontalAlignment.Left, SendedTime = message.DateTime.ToShortTimeString(), sender = Senders.you });
+                                stckPnlChats.Children.Add(new ChatItem() { Margin = new Thickness(10), Text = message.Message, HorizontalAlignment = HorizontalAlignment.Left, SendedTime = message.DateTime.ToShortDateString() + " " + message.DateTime.ToShortTimeString(), sender = Senders.you });
 
                             }
                         }
@@ -128,11 +113,11 @@ namespace ChatRoomStoryTeller
                         {
                             if (message.Sender == Senders.me)
                             {
-                                stckPnlChats.Children.Add(new ChatImageItem() { Height = 350, Margin = new Thickness(10), HorizontalAlignment = HorizontalAlignment.Right, Image = new BitmapImage(new Uri(Environment.CurrentDirectory + "/" + message.Image, UriKind.Relative)), SendedTime = message.DateTime.ToShortTimeString(), sender = Senders.me });
+                                stckPnlChats.Children.Add(new ChatImageItem() { Height = 350, Margin = new Thickness(10), HorizontalAlignment = HorizontalAlignment.Right, Image = new BitmapImage(new Uri(Environment.CurrentDirectory + "/" + message.Image, UriKind.Relative)), SendedTime = message.DateTime.ToShortDateString() + " " + message.DateTime.ToShortTimeString(), sender = Senders.me });
                             }
                             else if (message.Sender == Senders.you)
                             {
-                                stckPnlChats.Children.Add(new ChatImageItem() { Height = 350, Margin = new Thickness(10), HorizontalAlignment = HorizontalAlignment.Left, Image = new BitmapImage(new Uri(Environment.CurrentDirectory + "/" + message.Image, UriKind.Relative)), SendedTime = message.DateTime.ToShortTimeString(), sender = Senders.you });
+                                stckPnlChats.Children.Add(new ChatImageItem() { Height = 350, Margin = new Thickness(10), HorizontalAlignment = HorizontalAlignment.Left, Image = new BitmapImage(new Uri(Environment.CurrentDirectory + "/" + message.Image, UriKind.Relative)), SendedTime = message.DateTime.ToShortDateString() + " " + message.DateTime.ToShortTimeString(), sender = Senders.you });
 
                             }
 
@@ -144,26 +129,32 @@ namespace ChatRoomStoryTeller
         }
         private void Send_clicked(object sender, MouseButtonEventArgs e)
         {
-            var tttmp = users.Where(x => x.id == currentChatid).First();
-            tttmp.Messages.Add(new ChatMessage() { Sender = Senders.me, Message = txtToSend.Text, DateTime = DateTime.Now });
-            var tttttttt = tttmp.LatestDialogue.Questions.Where(x => x.Message.Message == txtToSend.Text).First();
-            tttttttt.Answer.DoTasks();
-            tttttttt.isAlreadyUsed = true;
-            if (!tttmp.LatestDialogue.Tasks.Any(x => x.Type == TaskType.ReturnToThisDialogue))
-                tttmp.LatestDialogue = tttmp.LatestDialogue.Questions.Where(x => x.Message.Message == txtToSend.Text).First().Answer;
+            try
+            {
+                var tttmp = users.Where(x => x.id == currentChatid).First();
+                //tttmp.Messages.Add(new ChatMessage() { Sender = Senders.me, Message = txtToSend.Text, DateTime = DateTime.Now });
+                tttmp.LatestDialogue.Questions.Where(x => x.Message.Message == txtToSend.Text).First().Message.DateTime = DateTime.Now;
+                tttmp.Messages.Add(tttmp.LatestDialogue.Questions.Where(x=>x.Message.Message==txtToSend.Text).First().Message);
+                var tttttttt = tttmp.LatestDialogue.Questions.Where(x => x.Message.Message == txtToSend.Text).First();
+                tttttttt.Answer.DoTasks();
+                tttttttt.isAlreadyUsed = true;
+                if (!tttmp.LatestDialogue.Tasks.Any(x => x.Type == TaskType.ReturnToThisDialogue))
+                    tttmp.LatestDialogue = tttmp.LatestDialogue.Questions.Where(x => x.Message.Message == txtToSend.Text).First().Answer;
 
-            txtToSend.Clear();
-            LoadMessagesPage(currentChatid);
-            SaveDb();
+                txtToSend.Clear();
+                LoadMessagesPage(currentChatid);
+                SaveDb();
+            }
+            catch { }
         }
         public void SaveDb()
         {
-            System.IO.File.WriteAllText("backup.db", JsonConvert.SerializeObject(users, Formatting.Indented));
+            //System.IO.File.WriteAllText("backup.db", JsonConvert.SerializeObject(users, Formatting.Indented));
         }
         public void LoadDb()
         {
-            users = JsonConvert.DeserializeObject<List<User>>(System.IO.File.ReadAllText("backup.db"));
-            loadUsers();
+             // JsonConvert.DeserializeObject<List<User>>(System.IO.File.ReadAllText("backup.db"));
+            //loadUsers();
         }
         private List<string> textList = new List<string>();
         int enumarator = -1;
@@ -207,8 +198,9 @@ namespace ChatRoomStoryTeller
             stackPnlUsers.Children.Clear();
             foreach (var item in users)
             {
-                if (item.Messages != null)
+                if (item.Messages != null &&item.Messages.Count > 0)
                 {
+                    
                     stackPnlUsers.Children.Add(new UserinList()
                     {
                         Margin = new Thickness(10),

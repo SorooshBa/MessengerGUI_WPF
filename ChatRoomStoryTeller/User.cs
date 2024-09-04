@@ -14,7 +14,7 @@ namespace ChatRoomStoryTeller
         public string Name { get; set; }
         public string Image { get; set; }
         public bool isNewMeesage {  get; set; }
-        public List<ChatMessage> Messages { get; set; }
+        public List<ChatMessage> Messages { get; set; }=new List<ChatMessage>();
         public Dialogue LatestDialogue {  get; set; }
     }
 }

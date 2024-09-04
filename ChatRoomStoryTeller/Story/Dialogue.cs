@@ -23,12 +23,14 @@ namespace ChatRoomStoryTeller.Story
             {
                 if (task.Type == TaskType.None)
                 {
-                    await Task.Delay(3000);
+                    await Task.Delay(2000);
+                    Message.DateTime = DateTime.Now;
                     MainWindow.users.Where(x=>x.id==UserId).First().Messages.Add(Message);
                     MainWindow._instance.LoadMessagesPage(UserId);
                 }
                 if(task.Type == TaskType.RemoveChat)
                 {
+                    await Task.Delay(5000);
                     foreach (var item in MainWindow.users.Where(x => x.id == UserId).First().Messages)
                     {
                         item.Message = "[deleted]";
@@ -37,14 +39,20 @@ namespace ChatRoomStoryTeller.Story
                 }
                 if(task.Type==TaskType.NewUser)
                 {
-                    MainWindow.users.Add(new User() { id = Int32.Parse(task.param1), Name = task.param2, Image = task.param3 });
+                    await Task.Delay(2000);
+                    MainWindow.users.Add(new User() { id = task.userid, Name = task.userename, Image = task.image });
                     MainWindow._instance.loadUsers();
                 }
                 if(task.Type==TaskType.MakeAnotherUserSendMessage)
                 {
-                    var temp = MainWindow.users.Where(x => x.id == Int32.Parse(task.param1)).First();
-                    temp.Messages.Add(new ChatMessage() { Sender = Senders.you, Message = task.param2, DateTime = DateTime.Now });
+                    await Task.Delay(2000);
+                    var temp = MainWindow.users.Where(x => x.id == task.useridToSendMessage).First();
+                    temp.Messages.Add(new ChatMessage() { Sender = Senders.you, Message = task.messageTextTosend, DateTime = DateTime.Now });
                     temp.LatestDialogue = task.param4;
+                    temp.isNewMeesage = true;
+                    MainWindow._instance.loadUsers();
+                    if(task.userid==-1)
+                    MainWindow._instance.LoadMessagesPage(task.useridToSendMessage);
                 }
                 
                 MainWindow._instance.SaveDb();

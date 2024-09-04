@@ -9,9 +9,12 @@ namespace ChatRoomStoryTeller.Story
     public class TaskItem
     {
         public TaskType Type { get; set; } = TaskType.None;
-        public string param1 { get; set; }
-        public string param2 { get; set; }
-        public string param3 { get; set; }
+        public int  userid { get; set; }
+        public string userename { get; set; }
+        public string image { get; set; }
+
+        public int useridToSendMessage { get; set; }
+        public string messageTextTosend { get; set; }
         public Dialogue param4 { get; set; }
         public Dialogue param5 { get; set; }
     }
