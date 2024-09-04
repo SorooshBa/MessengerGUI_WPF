@@ -13,6 +13,7 @@ namespace ChatRoomStoryTeller.Story
         public string param2 { get; set; }
         public string param3 { get; set; }
         public Dialogue param4 { get; set; }
+        public Dialogue param5 { get; set; }
     }
     public enum TaskType
     {
@@ -20,6 +21,7 @@ namespace ChatRoomStoryTeller.Story
         NewUser,
         RemoveChat,
         ReturnToThisDialogue,
+        AddQuestionToDialogue,
         MakeAnotherUserSendMessage
     }
 }
