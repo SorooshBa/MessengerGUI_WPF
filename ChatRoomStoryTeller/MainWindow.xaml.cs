@@ -79,6 +79,10 @@ namespace ChatRoomStoryTeller
                 var bytes = File.ReadAllBytes(op.FileName);
                 var back =  MessagePackSerializer.Deserialize<BackUp>(bytes, ContractlessStandardResolver.Options);
                 users= back.Users;
+                foreach (var user in users)
+                {
+                    user.Messages.Add(user.LatestDialogue.Message);
+                }
             }
         }
         bool tempbool = true;
@@ -100,6 +104,7 @@ namespace ChatRoomStoryTeller
             if (user != null)
             {
                 textList.Clear();
+                txtToSend.Clear();
                 if (user.LatestDialogue != null)
                     if (user.LatestDialogue.Questions != null)
                         foreach (var item in user.LatestDialogue.Questions)
