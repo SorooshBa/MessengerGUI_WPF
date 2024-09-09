@@ -1,9 +1,14 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using ChatRoomStoryTeller.Story;
+using MessagePack;
+using MessagePack.Resolvers;
+using Microsoft.Win32;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using StoryMaker;
 
 namespace ChatRoomStoryTeller
 {
@@ -21,49 +26,60 @@ namespace ChatRoomStoryTeller
             chatPageGrid.Visibility = Visibility.Hidden;
 
 
-            users.Add(new User()
-            {
-                Name = "Olivia Richardson",
-                Image = "/img/oli.png",
-                id = 1
-            });
-            List<ChatMessage> messages = new List<ChatMessage>();
-            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now-new TimeSpan(36,24,12), Message = "This new app look dope" });
-            messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(36, 12, 12), Message = "helllo " });
-            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(36, 8, 12), Message = "me and Jacob gonna go to a theater. comin?" });
-            messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(36, 7, 12), Message = "not sure." });
-            messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(36, 6, 12), Message = "You two guys have fun" });
-            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(36, 5, 12), Message = "Okay.Tnx" });
-            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(31, 24, 12), Image = "/img/theater.webp" });
-            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(31, 24, 12), Image = "/img/orig.jpg" });
-            messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(31, 24, 12), Message = "it was so good" });
-            messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(30, 32, 12), Message = "WOW" });
-            messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now , Message = "Hey Cassy Where have you been? Im a bit worried about you." });
+            //users.Add(new User()
+            //{
+            //    Name = "Olivia Richardson",
+            //    Image = "/img/oli.png",
+            //    id = 1
+            //});
+            //List<ChatMessage> messages = new List<ChatMessage>();
+            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now-new TimeSpan(36,24,12), Message = "This new app look dope" });
+            //messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(36, 12, 12), Message = "helllo " });
+            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(36, 8, 12), Message = "me and Jacob gonna go to a theater. comin?" });
+            //messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(36, 7, 12), Message = "not sure." });
+            //messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(36, 6, 12), Message = "You two guys have fun" });
+            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(36, 5, 12), Message = "Okay.Tnx" });
+            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(31, 24, 12), Image = "/img/theater.webp" });
+            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(31, 24, 12), Image = "/img/orig.jpg" });
+            //messages.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(31, 24, 12), Message = "it was so good" });
+            //messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(30, 32, 12), Message = "WOW" });
+            //messages.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now , Message = "Hey Cassy Where have you been? Im a bit worried about you." });
 
-            users[users.Count - 1].Messages = messages;
-            users.Add(new User()
-            {
-                Name = "My Love ❤️",
-                id = 2,
-                Image = "/img/jacob.jpg"
-            });
-            List<ChatMessage> messages2 = new List<ChatMessage>();
-            messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(23, 24, 12), Message = "{deleted message}" });
-            messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(23, 23, 12), Message = "{deleted message}" });
-            messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(23, 12, 12), Message = "{deleted message}" });
-            messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(23, 11, 12), Message = "{deleted message}" });
-            messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(23, 10, 12), Message = "Is it removed on both sides?" });
-            messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(23, 10, 8), Message = "Yes ma love" });
-            messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(21, 24, 12), Message = "very well. no worries" });
-            users[users.Count - 1].Messages = messages2;
+            //users[users.Count - 1].Messages = messages;
+            //users.Add(new User()
+            //{
+            //    Name = "My Love ❤️",
+            //    id = 2,
+            //    Image = "/img/jacob.jpg"
+            //});
+            //List<ChatMessage> messages2 = new List<ChatMessage>();
+            //messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(23, 24, 12), Message = "{deleted message}" });
+            //messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(23, 23, 12), Message = "{deleted message}" });
+            //messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(23, 12, 12), Message = "{deleted message}" });
+            //messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(23, 11, 12), Message = "{deleted message}" });
+            //messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(23, 10, 12), Message = "Is it removed on both sides?" });
+            //messages2.Add(new ChatMessage() { Sender = Senders.me, DateTime = DateTime.Now - new TimeSpan(23, 10, 8), Message = "Yes ma love" });
+            //messages2.Add(new ChatMessage() { Sender = Senders.you, DateTime = DateTime.Now - new TimeSpan(21, 24, 12), Message = "very well. no worries" });
+            //users[users.Count - 1].Messages = messages2;
             //////-------------
             //System.IO.File.WriteAllText("backup.db", JsonConvert.SerializeObject(users, Formatting.Indented));
             //LoadDb();
 
 
-            StoryManager.LoadDailogus();
+            //StoryManager.LoadDailogus();
+            LoadBackup();
             loadUsers();
 
+        }
+        public void LoadBackup()
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            if(op.ShowDialog()==true)
+            {
+                var bytes = File.ReadAllBytes(op.FileName);
+                var back =  MessagePackSerializer.Deserialize<BackUp>(bytes, ContractlessStandardResolver.Options);
+                users= back.Users;
+            }
         }
         bool tempbool = true;
         private void User_MouseDown(object sender, MouseButtonEventArgs e)

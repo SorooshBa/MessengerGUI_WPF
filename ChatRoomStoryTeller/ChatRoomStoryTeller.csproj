@@ -17,6 +17,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="bin\Debug\net8.0-windows\img\bulletface.png" />
+    <Content Include="bin\Debug\net8.0-windows\img\jacob.jpg" />
+    <Content Include="bin\Debug\net8.0-windows\img\oli.png" />
+    <Content Include="bin\Debug\net8.0-windows\img\orig.jpg" />
+    <Content Include="bin\Debug\net8.0-windows\img\profile.jpg" />
+    <Content Include="bin\Debug\net8.0-windows\img\sara.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net8.0-windows\img\theater.webp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MessagePack" Version="2.5.172" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
