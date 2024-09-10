@@ -81,6 +81,7 @@ namespace ChatRoomStoryTeller
                 users= back.Users;
                 foreach (var user in users)
                 {
+                    if(user.LatestDialogue!=null)
                     user.Messages.Add(user.LatestDialogue.Message);
                 }
             }
